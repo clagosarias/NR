@@ -1,28 +1,9 @@
 (function() {
   const template = document.createElement('template');
+  var css = new CSSStyleSheet()
+  css.replace( "@import url('/scripts/components/my-element/my-element.css')" )
 
   template.innerHTML = `
-    <style>
-      button,
-      span {
-        font-size: 3rem;
-        font-family: monospace;
-        padding: 0 .5rem;
-      }
-
-      button {
-        background: pink;
-        color: black;
-        border: 0;
-        border-radius: 6px;
-        box-shadow: 0 0 5px rgba(173, 61, 85, .5);
-      }
-
-      button:active {
-        background: #ad3d55;
-        color: white;
-      }
-    </style>
     <div>
       <button type="button" increment>+</button>
       <span></span>
@@ -39,6 +20,7 @@
 
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
+      this.shadowRoot.adoptedStyleSheets = [css];
 
       this.incrementBtn = this.shadowRoot.querySelector('[increment]');
       this.decrementBtn = this.shadowRoot.querySelector('[decrement]');
