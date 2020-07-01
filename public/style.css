@@ -1,0 +1,209 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: HelveticaNeue;
+  src: url(fonts/HelveticaNeue-Regular.ttf);
+}
+@font-face {
+  font-family: HelveticaNeue-Bold;
+  src: url(fonts/HelveticaNeue-Bold.ttf);
+  font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bold);
+}
+
+p, span, label {
+  font-family: var(--font-regular);
+}
+
+:root {
+  --primary-background: #f5f5f5;
+  --primary-text: #000000;
+  --secondary-text: #4A4A4A;
+  --primary-accent: #8ad736;
+  --font-regular: "HelveticaNeue";
+  --font-bold: "HelveticaNeue-Bold" ;
+}
+
+body {
+  background-color: var(--primary-background);
+}
+
+body, h1, p {
+  margin: 0;
+}
+
+h1 {
+  color: var(--primary-text);
+  font-size: 35px;
+  line-height: 43px;
+}
+
+.app {
+  padding: 30px;
+  max-width: 840px;
+}
+.app__header {
+  display: flex;
+  color: var(--primary-text);
+  margin-bottom: 30px;
+}
+.app__header__text {
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+}
+.app__header__text h1 {
+  padding-right: 12px;
+  white-space: nowrap;
+}
+.app__header__text p {
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 30px;
+  flex: 2;
+}
+.app__header__checkbox {
+  margin-bottom: 4px;
+}
+.app__header__checkbox .checkbox__container {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  padding-left: 29px;
+  cursor: pointer;
+  -webkit-user-select: none;
+          user-select: none;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+.app__header__checkbox .checkbox__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.app__header__checkbox .checkbox__container input:checked ~ .checkmark:after {
+  transform: scale(1);
+}
+.app__header__checkbox .checkbox__container .checkmark {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.app__header__checkbox .checkbox__container .checkmark:after {
+  content: "";
+  position: absolute;
+  transform-origin: 50%;
+  transform: scale(0);
+  display: block;
+  left: 3px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  background: var(--primary-accent);
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+.app__header__checkbox .checkbox__container:hover input ~ .checkmark {
+  border-color: var(--primary-accent);
+}
+.app__content.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.app__content.list {
+  grid-template-columns: 1fr;
+}
+.app__content__host {
+  background: white;
+  border-radius: 2px;
+  padding: 30px;
+}
+.app__content__host .host__name {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-bottom: 23px;
+}
+.app__content__host .host__list__application {
+  display: flex;
+}
+.app__content__host .host__list__application:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+.app__content__host .host__list__application .application__apdex {
+  color: var(--secondary-text);
+  opacity: 62%;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-right: 16px;
+}
+.app__content__host .host__list__application .application__name {
+  color: var(--secondary-text);
+  font-size: 16px;
+  line-height: 19px;
+}
