@@ -8,6 +8,10 @@ export default class Host {
     return this._applications;
   }
 
+  get topApplications() {
+    return this._applications.slice(0,5);
+  }
+
   get name() {
     return this._name;
   }

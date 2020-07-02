@@ -14,8 +14,8 @@ export default class Data {
     let _hosts = [];
     json.sort((a, b) => b.apdex - a.apdex)
 
-    for (var i = 0, len = json.length; i < len; ++i) {
-      for (var j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
+    for (let i = 0, len = json.length; i < len; ++i) {
+      for (let j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
         const found = _hosts.findIndex(host => host.name === json[i].host[j]); // TODO: IE11 polyfill
 
         if (found === -1) {

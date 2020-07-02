@@ -4,6 +4,11 @@
   css.replace( "@import url('/scripts/components/my-element/my-element.css')" )
 
   template.innerHTML = `
+    <div class="app__content__host">
+      <slot name="name"></slot>
+      <slot name="appList"></slot>
+    </div>
+
     <div>
       <button type="button" increment>+</button>
       <span></span>
@@ -24,7 +29,6 @@
 
       this.incrementBtn = this.shadowRoot.querySelector('[increment]');
       this.decrementBtn = this.shadowRoot.querySelector('[decrement]');
-      this.displayVal = this.shadowRoot.querySelector('span');
     }
 
     connectedCallback() {
@@ -61,11 +65,11 @@
     }
 
     static get observedAttributes() {
-      return ['value'];
+      return ['name'];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.displayVal.innerText = this.value;
+      this.hostName = newValue;
     }
 
     get value() {
@@ -84,8 +88,12 @@
       return this.getAttribute('max');
     }
 
-    get name() {
+    get hostName() {
       return this.getAttribute('name')
+    }
+
+    set hostName(newValue) {
+      this.setAttribute('name', newValue);
     }
 
     set value(newValue) {

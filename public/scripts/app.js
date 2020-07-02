@@ -1,8 +1,8 @@
 'use strict'
-import { needsPolyfill, loadScript } from './utils.js'
+import { hasAllFeatures, loadScript } from './utils.js'
 import { main } from './main.js'
 
-if (needsPolyfill()) {
+if (hasAllFeatures()) {
   // Browsers that support all features run `main()` immediately.
   main();
 } else {

@@ -1,19 +1,42 @@
-button,
-span {
-  font-size: 3rem;
-  font-family: monospace;
-  padding: 0 .5rem;
+ul {
+  margin: 0;
+  padding: 0;
+	list-style: none;
 }
 
-button {
-  background: pink;
-  color: black;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: 0 0 5px rgba(173, 61, 85, .5);
+p {
+  margin: 0;
+  font-family:  var(--font-regular);
 }
 
-button:active {
-  background: #ad3d55;
-  color: white;
+.app__content__host {
+  background: white;
+  border-radius: 2px;
+  padding: 30px;
+}
+.app__content__host .host__name {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-bottom: 23px;
+}
+.app__content__host .host__list__application {
+  display: flex;
+}
+.app__content__host .host__list__application:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+.app__content__host .host__list__application .application__apdex {
+  color: var(--secondary-text);
+  opacity: 62%;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-right: 16px;
+}
+.app__content__host .host__list__application .application__name {
+  color: var(--secondary-text);
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
 }

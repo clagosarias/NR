@@ -177,7 +177,7 @@ h1 {
 .app__content.list {
   grid-template-columns: 1fr;
 }
-.app__content__host {
+/* .app__content__host {
   background: white;
   border-radius: 2px;
   padding: 30px;
@@ -203,6 +203,38 @@ h1 {
   margin-right: 16px;
 }
 .app__content__host .host__list__application .application__name {
+  color: var(--secondary-text);
+  font-size: 16px;
+  line-height: 19px;
+} */
+
+/* TODO: move into scss */
+my-element {
+  background: white;
+  border-radius: 2px;
+  padding: 30px;
+}
+my-element .host__name {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-bottom: 23px;
+}
+my-element .host__list__application {
+  display: flex;
+}
+my-element .host__list__application:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+my-element .host__list__application .application__apdex {
+  color: var(--secondary-text);
+  opacity: 62%;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-right: 16px;
+}
+my-element .host__list__application .application__name {
   color: var(--secondary-text);
   font-size: 16px;
   line-height: 19px;

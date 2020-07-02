@@ -1,6 +1,6 @@
-export const needsPolyfill = () => {
+export const hasAllFeatures = () => {
   // Basically IE11
-  return !(window.fetch && window.Symbol);
+  return window.fetch && window.Symbol;
 }
 
 export const loadScript = src => {

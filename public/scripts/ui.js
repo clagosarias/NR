@@ -1,7 +1,8 @@
-export default class UI {
-  constructor(checkboxInput, appContent) {
+class UI {
+  declareElements(checkboxInput, appContent) {
     this._checkboxInput = document.querySelector(checkboxInput);
     this._appContent = document.querySelector(appContent);
+    this.addCheckboxListener();
   }
 
   addCheckboxListener() {
@@ -17,4 +18,10 @@ export default class UI {
   changeContentGrid() {
     this._appContent.classList.remove('list')
   }
+
+  get appContent() {
+    return this._appContent;
+  }
 }
+
+export default UI = new UI();
