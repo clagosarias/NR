@@ -12,21 +12,22 @@ export const main = async err => {
 
     // forEach is actually faster in small number of items
     data.hostsMap.forEach(host => {
+      console.log(host)
       // Writes HTML to be used to instantiate an `<app-drawer>` element with a `usercompname` attribute
-      const myElemInstance = `<my-element>
+      const hostElemInstance = `<host-element>
                                 <p class="host__name" slot="name">${host.name}</p>
                                 <ul class="host__list" slot="appList">
                                   ${host.topApplications.map(app =>`
-                                    <li class="host__list__application">
-                                      <p class="application__apdex">${app.apdex}</p>
-                                      <p class="application__name">${app.name}</p>
-                                    </li>
+                                    <application-element release="${app.version}">
+                                      <p class="application__apdex" slot="appApdex">${app.apdex}</p>
+                                      <p class="application__name" slot="appName">${app.name}</p>
+                                    </application-element>
                                   `).join('')}
                                 </ul>
-                              </my-element>`;
+                              </host-element>`;
 
       // Creates the new `<app-drawer>` element, appended to the `<main>` element
-      UI.appContent.insertAdjacentHTML("beforeend", myElemInstance);
+      UI.appContent.insertAdjacentHTML("beforeend", hostElemInstance);
     });
   }
 }
