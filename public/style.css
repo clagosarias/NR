@@ -179,6 +179,15 @@ h1 {
 .app__header__checkbox .checkbox__container input:checked ~ .checkmark:after {
   transform: scale(1);
 }
+.app__header__checkbox .checkbox__container input:checked ~ .as-list {
+  display: none;
+}
+.app__header__checkbox .checkbox__container input:checked ~ .as-grid {
+  display: block;
+}
+.app__header__checkbox .checkbox__container .as-grid {
+  display: none;
+}
 .app__header__checkbox .checkbox__container .checkmark {
   position: absolute;
   top: 0px;

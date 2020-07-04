@@ -73,6 +73,18 @@ h1 {
           &:checked ~ .checkmark:after {
             transform: scale(1)
           }
+
+          &:checked ~ .as-list {
+            display: none;
+          }
+
+          &:checked ~ .as-grid {
+            display: block;
+          }
+        }
+
+        .as-grid {
+          display: none;
         }
 
         .checkmark {
