@@ -5,10 +5,7 @@ export default class Data {
     return(async () => {
       let json = await fetch("http://127.0.0.1:8080/assets/host-app-data.json")
       .then(response => response.json())
-      const t0 = performance.now();
       this.hostsMap = this.mapHosts(json);
-      const t1 = performance.now();
-      console.log( t1 - t0 + ' ms')
       return this
     })()
   }

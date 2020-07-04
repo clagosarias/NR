@@ -10,10 +10,9 @@ export const main = async err => {
     UI.declareElements('#checkboxInput', '#appContent', "app-modal");
 
     // forEach is actually faster in small number of items
-    // TODO: transform into for loop
-    data.hostsMap.forEach(host => {
+    for (let [hostName, host] of data.hostsMap) {
       const hostElemInstance = `<host-element>
-                                <p class="host__name" slot="name">${host.name}</p>
+                                <p class="host__name" slot="name">${hostName}</p>
                                 <ul class="host__list" slot="appList">
                                   ${host.applications.map(app =>`
                                     <application-element release="${app.version}">
@@ -25,9 +24,10 @@ export const main = async err => {
                               </host-element>`;
 
       UI.appContent.insertAdjacentHTML("beforeend", hostElemInstance);
-    });
+    };
 
     // data.removeAppFromHosts({"name":"Small Fresh Pants - Kautzer - Boyer, and Sons","contributors":["Edwin Reinger","Ofelia Dickens","Hilbert Cole","Helen Kuphal","Maurine McDermott Sr."],"version":7,"apdex":68,"host":["7e6272f7-098e.dakota.biz","9a450527-cdd9.kareem.info","e7bf58af-f0be.dallas.biz"]},)
-    console.log(data.getTopAppsByHost("92116865-5462.conor.com"))
+    // console.log(data.getTopAppsByHost("92116865-5462.conor.com"))
+    console.log(data.hostsMap)
   }
 }
