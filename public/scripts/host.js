@@ -1,9 +1,7 @@
 export default class Host {
   constructor(name, application) {
     this._name = name;
-    this._applications = [];
-    this._apdexMap = new Map();
-    this._apdexMap.set(application.name, application.apdex);
+    this._applications = [application];
   }
 
   get applications() {
@@ -19,16 +17,16 @@ export default class Host {
   }
 
   addApplication(application) {
-    /* We could consider removing data that we won't need in the {application} object before inserting it into the host with something like:
+    /*
+    We could consider removing data that we won't need in the {application} object before inserting it into the host with something like:
     this._applications.push((({ host, contributors, ...app }) => app)(application));
-    But it's faster to leave them.
+    But ,if we can afford occupying the memory space, it's faster to leave them.
     */
-    this._applications.push(application);
-    this._apdexMap.set(application.name, application.apdex);
+    this._applications.push(application)
   }
 
   addApplicationInOrder(application) {
-    // 0(n)
+    // 0(n*m)
     for (let i = 0, len = this._applications.length; i < len; ++i) {
       if (this._applications[i].apdex <= application.apdex) {
         this._applications.splice(i, 0, application)
@@ -38,7 +36,7 @@ export default class Host {
   }
 
   removeApplication(application) {
-    // 0(n)
+    // 0(n*m)
     for (let i = 0, len = this._applications.length; i < len; ++i) {
       if (this._applications[i].name === application.name) {
         this._applications.splice(i, 1);

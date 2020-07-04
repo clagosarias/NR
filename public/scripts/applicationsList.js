@@ -1,6 +1,6 @@
 import Host from './host.js'
 
-export default class Data {
+export default class ApplicationsList {
   constructor() {
     return(async () => {
       let json = await fetch("http://127.0.0.1:8080/assets/host-app-data.json")
