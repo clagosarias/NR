@@ -1,4 +1,5 @@
-import UI from '../../ui.js'
+'use strict'
+import UI from '../../ui.js';
 
 (function() {
   const template = document.createElement('template');

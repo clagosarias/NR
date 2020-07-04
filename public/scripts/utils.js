@@ -1,3 +1,4 @@
+'use strict'
 export const hasAllFeatures = () => {
   // Basically IE11
   return window.fetch && window.Symbol;

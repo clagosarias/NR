@@ -1,3 +1,4 @@
+'use strict'
 import ApplicationsList from './applicationsList.js'
 import UI from './ui.js'
 

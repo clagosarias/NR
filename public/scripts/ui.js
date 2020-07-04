@@ -1,3 +1,4 @@
+'use strict'
 class UI {
   declareElements(checkboxInput, appContent, modal) {
     this._checkboxInput = document.querySelector(checkboxInput);

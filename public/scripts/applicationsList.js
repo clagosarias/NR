@@ -1,3 +1,4 @@
+'use strict'
 import Host from './host.js'
 
 export default class ApplicationsList {
@@ -29,14 +30,15 @@ export default class ApplicationsList {
     // o(n*m)
     for (let i = 0, len = json.length; i < len; ++i) {
       for (let j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
-        const found = _hosts.get(json[i].host[j]);
+        // An attempt at trying to cache the expression and making it more readable
+        const hostName = json[i].host[j];
 
-        if (!found) {
-          _hosts.set(json[i].host[j], new Host(json[i].host[j], json[i]));
+        if (!_hosts.get(hostName)) {
+          _hosts.set(hostName, new Host(hostName, json[i]));
         }
 
         else {
-          _hosts.get(json[i].host[j]).addApplication(json[i]);
+          _hosts.get(hostName).addApplication(json[i]);
         }
       }
     }

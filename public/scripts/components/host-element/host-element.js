@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
   const template = document.createElement('template');
 

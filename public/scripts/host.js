@@ -1,3 +1,4 @@
+'use strict'
 export default class Host {
   constructor(name, application) {
     this._name = name;
