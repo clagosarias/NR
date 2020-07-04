@@ -1,6 +1,7 @@
 @import "reset";
 @import "fonts";
 @import "variables";
+@import "components/index";
 
 body {
   background-color: var(--primary-background);
@@ -29,6 +30,7 @@ h1 {
       display: flex;
       align-items: flex-end;
       min-width: 0;
+      width: 100%;
 
       h1 {
         padding-right: 12px;

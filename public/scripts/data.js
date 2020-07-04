@@ -16,11 +16,15 @@ export default class Data {
 
   // map1 = {
   //   'host1': {
-  //     100: ['Application1', 'Application2'],
-  //     99: ['Application1', 'Application2']
+  //      new Host(name, mapApplicaciones[key: apdex, value: Set[new App(name, version, apdex)]], mapApdex[key: app, value: apdex])
   //   }
   // }
   // TODO: añadir comentario de ordenar 25 apps cuando hay 26 con la misma nota
+
+  /*
+  mapDel(key:app, value:[hosts])
+  */
+
   mapHosts(json) {
     let _hosts = new Map();
     json.sort((a, b) => b.apdex - a.apdex);
@@ -29,9 +33,11 @@ export default class Data {
     for (let i = 0, len = json.length; i < len; ++i) {
       for (let j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
         const found = _hosts.get(json[i].host[j]);
+
         if (!found) {
           _hosts.set(json[i].host[j], new Host(json[i].host[j], json[i]));
         }
+
         else {
           _hosts.get(json[i].host[j]).addApplication(json[i]);
         }

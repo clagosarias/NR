@@ -5,8 +5,9 @@
   <title>Apdex Challenge</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="scripts/app.js"></script>
-  <script src="scripts/components/host-element/host-element.js"></script>
-  <script src="scripts/components/application-element/application-element.js"></script>
+  <script type="module" src="scripts/components/host-element/host-element.js"></script>
+  <script type="module" src="scripts/components/application-element/application-element.js"></script>
+  <script type="module" src="scripts/components/modal/modal.js"></script>
 </head>
 <body>
   <div class="app">
@@ -25,20 +26,9 @@
     </div>
 
     <div class="app__content grid" id="appContent">
-      <!-- <div class="app__content__host">
-        <p class="host__name">Host name bruh</p>
-
-        <ul class="host__list">
-          <li class="host__list__application">
-            <p class="application__apdex">98</p>
-            <p class="application__name">Application name</p>
-          </li>
-        </ul>
-      </div> -->
-
     </div>
   </div>
 
-  <!-- <release-version></release-version> -->
+  <app-modal></app-modal>
 </body>
 </html>

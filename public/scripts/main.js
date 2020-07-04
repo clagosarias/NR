@@ -7,12 +7,10 @@ export const main = async err => {
   }
   else {
     let data = await new Data();
-    UI.declareElements('#checkboxInput', '#appContent');
-    // console.log(data.getTopAppsByHost("92116865-5462.conor.com"))
+    UI.declareElements('#checkboxInput', '#appContent', "app-modal");
 
     // forEach is actually faster in small number of items
     data.hostsMap.forEach(host => {
-      // Writes HTML to be used to instantiate an `<app-drawer>` element with a `usercompname` attribute
       const hostElemInstance = `<host-element>
                                 <p class="host__name" slot="name">${host.name}</p>
                                 <ul class="host__list" slot="appList">
@@ -25,7 +23,6 @@ export const main = async err => {
                                 </ul>
                               </host-element>`;
 
-      // Creates the new `<app-drawer>` element, appended to the `<main>` element
       UI.appContent.insertAdjacentHTML("beforeend", hostElemInstance);
     });
 

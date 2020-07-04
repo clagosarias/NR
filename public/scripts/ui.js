@@ -1,7 +1,8 @@
 class UI {
-  declareElements(checkboxInput, appContent) {
+  declareElements(checkboxInput, appContent, modal) {
     this._checkboxInput = document.querySelector(checkboxInput);
     this._appContent = document.querySelector(appContent);
+    this._modal = document.querySelector(modal);
     this.addCheckboxListener();
   }
 
@@ -21,6 +22,10 @@ class UI {
 
   get appContent() {
     return this._appContent;
+  }
+
+  openModal(version) {
+    this._modal.open(version);
   }
 }
 

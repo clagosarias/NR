@@ -1,0 +1,11 @@
+host-element {
+  background: white;
+  border-radius: 2px;
+  padding: 30px;
+}
+host-element .host__name {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-bottom: 23px;
+}

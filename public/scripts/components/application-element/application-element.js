@@ -1,7 +1,7 @@
+import UI from '../../ui.js'
+
 (function() {
   const template = document.createElement('template');
-  // var css = new CSSStyleSheet()
-  // css.replace( "@import url('/scripts/components/application-element/application-element.css')" )
 
   template.innerHTML = `
   <style>
@@ -24,7 +24,6 @@
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
       this.nameBtn = this.shadowRoot.querySelector('[openModal]');
-      // this.shadowRoot.adoptedStyleSheets = [css];
     }
 
     connectedCallback() {
@@ -32,7 +31,7 @@
     }
 
     openModal() {
-      console.log(this.version)
+      UI.openModal(this.version);
     }
 
     get version() {

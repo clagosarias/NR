@@ -1,0 +1,20 @@
+application-element {
+  display: block;
+}
+application-element:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+application-element .application__apdex {
+  color: var(--secondary-text);
+  opacity: 62%;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: var(--font-bold);
+  margin-right: 16px;
+  min-width: 22px;
+}
+application-element .application__name {
+  color: var(--secondary-text);
+  font-size: 16px;
+  line-height: 19px;
+}
