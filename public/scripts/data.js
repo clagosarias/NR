@@ -50,4 +50,16 @@ export default class Data {
   getTopAppsByHost(name) {
     return this.hostsMap.get(name).topApplications();
   }
+
+  addAppToHosts(app) {
+    for (let i = 0, len = app.host.length; i < len; ++i) {
+      this.hostsMap.get(app.host[i]).addApplicationInOrder(app);
+    }
+  }
+
+  removeAppFromHosts(app) {
+    for (let i = 0, len = app.host.length; i < len; ++i) {
+      this.hostsMap.get(app.host[i]).removeApplication(app);
+    }
+  }
 }
