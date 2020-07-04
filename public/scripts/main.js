@@ -10,6 +10,7 @@ export const main = async err => {
     UI.declareElements('#checkboxInput', '#appContent', "app-modal");
 
     // forEach is actually faster in small number of items
+    // TODO: transform into for loop
     data.hostsMap.forEach(host => {
       const hostElemInstance = `<host-element>
                                 <p class="host__name" slot="name">${host.name}</p>

@@ -50,8 +50,4 @@ export default class Data {
   getTopAppsByHost(name) {
     return this.hostsMap.get(name).topApplications();
   }
-
-  get hosts() {
-    return this.hostsMap;
-  }
 }
