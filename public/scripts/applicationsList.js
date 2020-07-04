@@ -10,14 +10,11 @@ export default class ApplicationsList {
       return this
     })()
   }
-  // map1[key: String[host], value: map2[key: apdex, value: Array[applications]]]
-
   // map1 = {
   //   'host1': {
   //      new Host(name, mapApplicaciones[key: apdex, value: Set[new App(name, version, apdex)]], mapApdex[key: app, value: apdex])
   //   }
   // }
-  // TODO: añadir comentario de ordenar 25 apps cuando hay 26 con la misma nota
 
   /*
   mapDel(key:app, value:[hosts])
@@ -27,7 +24,7 @@ export default class ApplicationsList {
     let _hosts = new Map();
     json.sort((a, b) => b.apdex - a.apdex);
 
-    // o(n*m)
+    // O(n*m)
     for (let i = 0, len = json.length; i < len; ++i) {
       for (let j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
         // An attempt at trying to cache the expression and making it more readable

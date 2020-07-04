@@ -27,7 +27,7 @@ export default class Host {
   }
 
   addApplicationInOrder(application) {
-    // 0(n*m)
+    // O(n*m)
     for (let i = 0, len = this._applications.length; i < len; ++i) {
       if (this._applications[i].apdex <= application.apdex) {
         this._applications.splice(i, 0, application)
@@ -37,7 +37,7 @@ export default class Host {
   }
 
   removeApplication(application) {
-    // 0(n*m)
+    // O(n*m)
     for (let i = 0, len = this._applications.length; i < len; ++i) {
       if (this._applications[i].name === application.name) {
         this._applications.splice(i, 1);

@@ -14,12 +14,12 @@ export const main = async err => {
       /*
         I considered creating a template literal string called hostNodes that would have all the hostElemInstance
         and apply the insertAdjacentHTML only once after the loop instead of every iteration.
-        But least for my calculations, the page rendered faster when doing it inside the for loop.
+        But at least for my calculations, the page rendered faster when doing it inside the for loop.
       */
 
       /*
         Using map to iterate over the array of applications is a decision I took because applications will have a max of 5 items, so the performance
-        variation between a map or a for should be near to non-significant compared to the readibility provided by the built-in map function.
+        variation between a map and a for should be near to non-significant compared to the readibility provided by the built-in map function.
       */
       const hostElemInstance = `<host-element>
                                 <p class="host__name" slot="name">${hostName}</p>
