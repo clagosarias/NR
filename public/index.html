@@ -5,10 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apdex Board</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/custom-elements-es5-adapter.js"></script>
-  <script src="main.js"></script>
+  <script type="module" src="scripts/app.js"></script>
+  <script type="module" src="scripts/components/host-element/host-element.js"></script>
+  <script type="module" src="scripts/components/application-element/application-element.js"></script>
+  <script type="module" src="scripts/components/modal/modal.js"></script>
+  <script type="text/javascript">
+    if (!window.Promise || !window.fetch || !window.Symbol) {
+      var loadScript = function(scriptUrl, afterCallback) {
+        var firstScriptElement = document.getElementsByTagName('script')[0]; 
+        var scriptElement = document.createElement('script');
+                scriptElement.type = 'text/javascript';
+                scriptElement.async = false;
+                scriptElement.src = scriptUrl;
+
+        var ieLoadBugFix = function (scriptElement, callback) {
+            if ( scriptElement.readyState == 'loaded' || scriptElement.readyState == 'complete' ) {
+                callback();
+            } else {
+                setTimeout(function() { ieLoadBugFix(scriptElement, callback); }, 100);
+            }
+        }
+
+        if ( typeof afterCallback === "function" ) {
+            if ( typeof scriptElement.addEventListener !== "undefined" ) {
+                scriptElement.addEventListener("load", afterCallback, false)
+            } else {
+                scriptElement.onreadystatechange = function(){
+                    scriptElement.onreadystatechange = null;
+                    ieLoadBugFix(scriptElement, afterCallback);
+                }
+            }
+        }
+        firstScriptElement.parentNode.insertBefore(scriptElement, firstScriptElement);
+      }
+
+      loadScript('https://cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js', function() {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js', function() {
+          loadScript('https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/custom-elements-es5-adapter.js', function() {
+            loadScript('main.js', function(){})
+          })
+        });
+      });
+    }
+  </script>
 
 </head>
 <body>
