@@ -26,16 +26,18 @@ export default class ApplicationsList {
 
     // O(n*m)
     for (let i = 0, len = json.length; i < len; ++i) {
+      // An attempt at trying to cache the variable and making it more readable
+      const application = json[i];
       for (let j = 0, lenJ = json[i].host.length; j < lenJ; ++j) {
-        // An attempt at trying to cache the expression and making it more readable
-        const hostName = json[i].host[j];
+        // same cache process here
+        const hostName = application.host[j];
 
         if (!_hosts.get(hostName)) {
-          _hosts.set(hostName, new Host(hostName, json[i]));
+          _hosts.set(hostName, new Host(hostName, application));
         }
 
         else {
-          _hosts.get(hostName).addApplication(json[i]);
+          _hosts.get(hostName).addApplication(application);
         }
       }
     }
