@@ -57,3 +57,16 @@ As a benchmark, in my machine the FMP was occuring at around 130/140ms (the live
 	    }
     ]
 In which case we could avoid the initial sort of the elements in applicationsList.
+
+### Start, build & test
+
+    npm install
+    npm start
+And... due to how I fetch the data of the json, the server has to be running in order to pass the tests :sweat_smile:
+	
+
+    npm run test 
+or
+
+    npm run build
+which runs webpack in order to compile the polyfills for IE11 and also executes the tests.
