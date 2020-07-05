@@ -125,7 +125,7 @@ h1 {
 
   &__content {
     /*
-
+      Sadly IE11 Doesn't play well with CSS3 Grids. If it did only the commented code would be necessary.
     */
     &.grid  {
       //display: grid;
