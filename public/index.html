@@ -9,6 +9,7 @@
   <script type="module" src="scripts/components/host-element/host-element.js"></script>
   <script type="module" src="scripts/components/application-element/application-element.js"></script>
   <script type="module" src="scripts/components/modal/modal.js"></script>
+
   <script type="text/javascript">
     if (!window.Promise || !window.fetch || !window.Symbol) {
       var loadScript = function(scriptUrl, afterCallback) {
@@ -42,7 +43,7 @@
       loadScript('https://cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js', function() {
         loadScript('https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js', function() {
           loadScript('https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/custom-elements-es5-adapter.js', function() {
-            loadScript('main.js', function(){})
+            loadScript('dist/app.bundle.js', function(){})
           })
         });
       });

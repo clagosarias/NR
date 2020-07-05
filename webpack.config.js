@@ -12,7 +12,8 @@ mode: 'development',
     './public/scripts/components/modal/modal.js',
   ],
   output: {
-    filename: 'main.js'
+    filename: 'app.bundle.js',
+    path: path.resolve(__dirname + '/public', 'dist'),
   },
   plugins: [
     new CleanWebpackPlugin(),
