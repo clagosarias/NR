@@ -17,7 +17,7 @@ export default class ApplicationsList {
   // }
 
   /*
-  mapDel(key:app, value:[hosts])
+    mapDel(key:app, value:[hosts])
   */
 
   mapHosts(json) {
@@ -51,7 +51,13 @@ export default class ApplicationsList {
 
   addAppToHosts(app) {
     for (let i = 0, len = app.host.length; i < len; ++i) {
-      this.hostsMap.get(app.host[i]).addApplicationInOrder(app);
+      const hostName = app.host[i];
+
+      if (this.hostsMap.get(hostName)) {
+        this.hostsMap.get(hostName).addApplicationInOrder(app);
+      } else {
+        this.hostsMap.set(hostName, new Host(hostName, app));
+      }
     }
   }
 

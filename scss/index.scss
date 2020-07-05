@@ -91,7 +91,7 @@ h1 {
 
         .checkmark {
           position: absolute;
-          top: 0px; // -3px
+          top: 0px;
           left: 0;
           height: 18px;
           width: 18px;
@@ -124,6 +124,9 @@ h1 {
   }
 
   &__content {
+    /*
+
+    */
     &.grid  {
       //display: grid;
       //grid-template-columns: 1fr 1fr;
