@@ -1,10 +1,10 @@
+@import "variables";
 @import "reset";
 @import "fonts";
-@import "variables";
 @import "components/index";
 
 body {
-  background-color: var(--primary-background);
+  background-color: $primary-background;
 }
 
 body, h1, p {
@@ -12,18 +12,19 @@ body, h1, p {
 }
 
 h1 {
-  color: var(--primary-text);
+  color: $primary-text;
   font-size: 35px;
   line-height: 43px;
 }
 
 .app {
   padding: 30px;
+  padding-bottom: 0;
   max-width: 840px;
 
   &__header {
     display: flex;
-    color: var(--primary-text);
+    color: $primary-text;
     margin-bottom: 30px;
 
     &__text {
@@ -51,6 +52,7 @@ h1 {
 
     &__checkbox {
       margin-bottom: 4px;
+      display: flex;
 
       .checkbox__container {
         display: block;
@@ -108,29 +110,46 @@ h1 {
             top: 3px;
             width: 12px;
             height: 12px;
-            background: var(--primary-accent);
+            background: $primary-accent;
             border-radius: 2px;
             transition: all 0.15s ease;
           }
         }
 
         &:hover input ~ .checkmark {
-          border-color: var(--primary-accent);
+          border-color: $primary-accent;
         }
       }
     }
   }
 
   &__content {
-
     &.grid  {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      //display: grid;
+      //grid-template-columns: 1fr 1fr;
+      //gap: 30px;
+
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      width: calc(100% + 30px);
+
+      host-element {
+        width: calc(50% - 30px);
+        margin: 0 15px 30px;
+      }
     }
 
     &.list {
-      grid-template-columns: 1fr;
+      //grid-template-columns: 1fr;
+      display: block;
+      width: 100%;
+      margin: 0;
+
+      host-element {
+        width: 100%;
+        margin: 0 0 30px 0;
+      }
     }
   }
 }

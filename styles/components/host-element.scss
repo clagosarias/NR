@@ -2,11 +2,14 @@ host-element {
   background: white;
   border-radius: 2px;
   padding: 30px;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
 
   .host__name {
     font-size: 16px;
     line-height: 19px;
-    font-family: var(--font-bold);
+    font-family: $font-bold;
     margin-bottom: 23px;
   }
 }

@@ -49,8 +49,8 @@
         border-top-left-radius: 0;
       }
       button {
-        background-color: var(--secondary-text);
-        border: 1px solid var(--secondary-text);
+        background-color: #4A4A4A;
+        border: 1px solid #4A4A4A;
         color: white;
         cursor: pointer;
         width: 100%;
