@@ -31,7 +31,4 @@ import UI from './ui.js'
 
     UI.appContent.insertAdjacentHTML("beforeend", hostElemInstance);
   };
-
-  // applicationsList.addAppToHosts({"name":"Small Fresh Pants - Kautzer - Boyer, and Sons","contributors":["Edwin Reinger","Ofelia Dickens","Hilbert Cole","Helen Kuphal","Maurine McDermott Sr."],"version":7,"apdex":68,"host":["7e6272f7-098e.dakota.biz","9a450527-cdd9.kareem.info","e7bf58af-f0be.dallas.biz"]},)
-  // applicationsList.getTopAppsByHost("92116865-5462.conor.com")
 })()

@@ -10,15 +10,6 @@ export default class ApplicationsList {
       return this
     })()
   }
-  // map1 = {
-  //   'host1': {
-  //      new Host(name, mapApplicaciones[key: apdex, value: Set[new App(name, version, apdex)]], mapApdex[key: app, value: apdex])
-  //   }
-  // }
-
-  /*
-    mapDel(key:app, value:[hosts])
-  */
 
   mapHosts(json) {
     let _hosts = new Map();
