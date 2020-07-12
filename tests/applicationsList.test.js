@@ -27,13 +27,7 @@ test('Add app to hosts while mainting apdex order', () => {
     applicationsList.addAppToHosts(appToBeAdded);
 
     hosts.forEach(host => {
-      expect(applicationsList.hostsMap.get(host).allApplications).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            name: appToBeAdded.name
-          })
-        ])
-      )
+      expect(applicationsList.hostsMap.get(host).allApplications.has(appToBeAdded.apdex)).toEqual(true)
     })
 })
 
@@ -44,13 +38,7 @@ test('Remove app from hosts', () => {
   applicationsList.removeAppFromHosts(appToBeRemoved);
 
   hosts.forEach(host => {
-    expect(applicationsList.hostsMap.get(host).allApplications).not.toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          name: appToBeRemoved.name
-        })
-      ])
-    )
+    expect(applicationsList.hostsMap.get(host).allApplications.has(appToBeRemoved.apdex)).toEqual(false)
   })
 })
 
@@ -60,13 +48,7 @@ test('Adding app with host that did not exist before', () => {
 
   applicationsList.addAppToHosts(appToBeAdded);
 
-  expect(applicationsList.hostsMap.get(hosts[0]).allApplications).toEqual(
-    expect.arrayContaining([
-      expect.objectContaining({
-        name: appToBeAdded.name
-      })
-    ])
-  )
+  expect(applicationsList.hostsMap.get(hosts[0]).allApplications.has(appToBeAdded.apdex)).toEqual(true)
 })
 
 test('Getting topAppsByHost with less than 5 apps', () => {

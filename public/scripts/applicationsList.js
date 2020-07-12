@@ -11,9 +11,21 @@ export default class ApplicationsList {
     })()
   }
 
+  // hostsMap = [
+  //   'hostA': {
+  //     new Host {
+  //       name,
+  //       applicationsMap[key: apdex, value: Set[new App{name, version, apdex}]],
+  //       apdexMap[key: app, value: apdex],
+  //     }
+  //   }
+  // ]
+
+  // delMap:[key: app, value:[hosts]]
+
   mapHosts(json) {
     let _hosts = new Map();
-    json.sort((a, b) => b.apdex - a.apdex);
+    // json.sort((a, b) => b.apdex - a.apdex);
 
     // O(n*m)
     for (let i = 0, len = json.length; i < len; ++i) {
@@ -45,7 +57,7 @@ export default class ApplicationsList {
       const hostName = app.host[i];
 
       if (this.hostsMap.get(hostName)) {
-        this.hostsMap.get(hostName).addApplicationInOrder(app);
+        this.hostsMap.get(hostName).addApplication(app);
       } else {
         this.hostsMap.set(hostName, new Host(hostName, app));
       }
