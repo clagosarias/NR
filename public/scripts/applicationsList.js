@@ -13,7 +13,7 @@ export default class ApplicationsList {
 
   mapHosts(json) {
     let _hosts = new Map();
-    json.sort((a, b) => b.apdex - a.apdex);
+    // json.sort((a, b) => b.apdex - a.apdex); 0(n*logn)
 
     // O(n*m)
     for (let i = 0, len = json.length; i < len; ++i) {
@@ -45,7 +45,7 @@ export default class ApplicationsList {
       const hostName = app.host[i];
 
       if (this.hostsMap.get(hostName)) {
-        this.hostsMap.get(hostName).addApplicationInOrder(app);
+        this.hostsMap.get(hostName).addApplication(app);
       } else {
         this.hostsMap.set(hostName, new Host(hostName, app));
       }
